@@ -1,6 +1,6 @@
 class Background {
   constructor() {
-    this.sky = loadImage("./..//assets/background/sky.png");
+    this.sky = loadImage("../assets/background/sky.png");
     this.farGrounds = loadImage("../assets/background/far-grounds.png");
     this.closeMountains = loadImage(
       "../assets/background/grassy_mountains.png"
