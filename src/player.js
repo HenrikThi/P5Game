@@ -109,14 +109,14 @@ class Fruit {
       return false;
     } else {
       game.player.score += 50;
-      // if (this.type === 1) {
-      //   alert(`Don't eath the lemons!!! You lose the game...`);
-      //   GAME_OVER = 1;
-      // }
-      // if (game.player.score >= 1000) {
-      //   alert(`You win the game. But remember... Don't eat the lemons!!!`);
-      //   GAME_OVER = 1;
-      // }
+      if (this.type === 1) {
+        alert(`Don't eath the lemons!!! You lose the game...`);
+        GAME_OVER = 1;
+      }
+      if (game.player.score >= 1000) {
+        alert(`You win the game. But remember... Don't eat the lemons!!!`);
+        GAME_OVER = 1;
+      }
       return true;
     }
   }

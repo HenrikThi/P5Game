@@ -15,7 +15,6 @@ class Background {
     this.drawClouds();
     this.drawFarGrounds();
     this.playerDelta = (450 - this.player.x) / 10;
-    console.log(this.playerDelta);
   }
 
   drawSky() {
