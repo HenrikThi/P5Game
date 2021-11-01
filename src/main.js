@@ -5,7 +5,7 @@ function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
   // game = new Game(new Player());
-  testImg = loadImage("assets/fruit/apple_run_0.png")
+  testImg = loadImage("apple_run_0.png")
 }
 
 function draw() {
