@@ -4,8 +4,8 @@ let testImg;
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
-  game = new Game(new Player());
-  testImg = loadImage("assets/fruit/lemon_run_0.png")
+  // game = new Game(new Player());
+  testImg = loadImage("apple_run_0.png")
 }
 
 function draw() {
