@@ -1,9 +1,11 @@
 let game;
+let testImg;
 
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
   game = new Game(new Player());
+  testImg = loadImage("/assets/fruit/lemon_run_0.png")
 }
 
 function draw() {
@@ -16,6 +18,7 @@ function draw() {
   game.drawBackground();
   game.drawAssets();
   game.drawForeground();
+  image(testImg,100,100,100,100)
 }
 
 function keyPressed() {}
