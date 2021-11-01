@@ -1,12 +1,12 @@
 class Background {
   constructor() {
-    this.sky = loadImage("assets/background/sky.png");
-    this.farGrounds = loadImage("assets/background/far-grounds.png");
+    this.sky = loadImage("./..//assets/background/sky.png");
+    this.farGrounds = loadImage("../assets/background/far-grounds.png");
     this.closeMountains = loadImage(
-      "assets/background/grassy_mountains.png"
+      "../assets/background/grassy_mountains.png"
     );
-    this.farMountains = loadImage("assets/background/far_mountains.png");
-    this.clouds = loadImage("assets/background/clouds_mid.png");
+    this.farMountains = loadImage("../assets/background/far_mountains.png");
+    this.clouds = loadImage("../assets/background/clouds_mid.png");
   }
   draw() {
     this.drawSky();
