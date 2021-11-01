@@ -1,8 +1,9 @@
 class Game {
   constructor(player) {
-    this.background = new Background();
-    this.foreground = new Foreground();
     this.player = player;
+    this.background = new Background(player);
+    this.foreground = new Foreground();
+
     this.fruits = [];
 
     this.fruitImages = FRUIT_NAMES.map((name) => [

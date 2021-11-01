@@ -5,7 +5,7 @@ class Player {
     this.imageMirrored = loadImage("assets/dino/dino_red_mirror.png");
     this.width = 100;
     this.height = 100;
-    this.x = 0;
+    this.x = WIDTH / 2 - this.width / 2;
     this.y = GROUND_LVL - 85;
     this.imgIdx = 0;
     this.score = 0;
