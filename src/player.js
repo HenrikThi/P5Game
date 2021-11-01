@@ -1,7 +1,7 @@
 class Player {
   //maybe later: make the dino grow!
   constructor() {
-    this.image = loadImage("../assets/dino/dino_red.png");
+    this.image = loadImage("assets/dino/dino_red.png");
     this.width = 100;
     this.height = 100;
     this.x = 0;
@@ -92,7 +92,6 @@ class Fruit {
         alert(`You win the game. But remember... Don't eat the lemons!!!`);
         GAME_OVER = 1;
       }
-      // console.log(game.player.score)
       console.log(this.type);
       return true;
     }
