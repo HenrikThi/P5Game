@@ -1,7 +1,7 @@
 class Player {
   //maybe later: make the dino grow!
   constructor() {
-    this.image = loadImage("../assets/dino/dino_red.png");
+    this.image = loadImage("assets/dino/dino_red.png");
     this.width = 100;
     this.height = 100;
     this.x = 0;

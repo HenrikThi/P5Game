@@ -1,22 +1,22 @@
 class Foreground {
   constructor() {
     this.ground04 = loadImage(
-      "../assets/foreground/Village Set_Platformer - Ground 04.png"
+      "assets/foreground/Village Set_Platformer - Ground 04.png"
     );
     this.ground10 = loadImage(
-      "../assets/foreground/Village Set_Platformer - Ground 10.png"
+      "assets/foreground/Village Set_Platformer - Ground 10.png"
     );
     this.ground11 = loadImage(
-      "../assets/foreground/Village Set_Platformer - Ground 11.png"
+      "assets/foreground/Village Set_Platformer - Ground 11.png"
     );
     this.ground02 = loadImage(
-      "../assets/foreground/Village Set_Platformer - Ground 02.png"
+      "assets/foreground/Village Set_Platformer - Ground 02.png"
     );
     this.ground12 = loadImage(
-        "../assets/foreground/Village Set_Platformer - Ground 12.png"
+        "assets/foreground/Village Set_Platformer - Ground 12.png"
       );
       this.ground08 = loadImage(
-        "../assets/foreground/Village Set_Platformer - Ground 08.png"
+        "assets/foreground/Village Set_Platformer - Ground 08.png"
       );
   }
 

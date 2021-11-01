@@ -6,9 +6,9 @@ class Game {
     this.fruits = [];
 
     this.fruitImages = FRUIT_NAMES.map((name) => [
-      loadImage(`../assets/fruit/${name}_run_0.png`),
-      loadImage(`../assets/fruit/${name}_run_1.png`),
-      loadImage(`../assets/fruit/${name}_run_2.png`),
+      loadImage(`assets/fruit/${name}_run_0.png`),
+      loadImage(`assets/fruit/${name}_run_1.png`),
+      loadImage(`assets/fruit/${name}_run_2.png`),
     ]);
   }
 
