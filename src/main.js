@@ -12,6 +12,8 @@ function draw() {
     line(0, i * 100, 1000, i * 100);
     line(i * 100, 0, i * 100, 1000);
   }
+  game.drawBackground();
+  game.drawForeground();
   game.drawAssets();
 }
 

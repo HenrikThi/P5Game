@@ -5,7 +5,7 @@ class Player {
     this.width = 100;
     this.height = 100;
     this.x = 0;
-    this.y = 900;
+    this.y = GROUND_LVL - 85;
     this.imgState = 0; //temp
   }
 
@@ -60,10 +60,6 @@ class Fruit {
 
   draw() {
     this.y += 10;
-    // if (this.y >= HEIGHT) {
-    //   this.type = Math.floor(Math.random() * FRUIT_NAMES.length);
-    //   this.setRandomPosition();
-    // }
     image(this.images[this.type][this.getImageIdx()], this.x, this.y, 100, 100);
   }
 

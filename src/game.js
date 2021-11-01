@@ -1,5 +1,7 @@
 class Game {
   constructor(player) {
+    this.background = new Background();
+    this.foreground = new Foreground();
     this.player = player;
     this.fruits = [];
 
@@ -11,6 +13,14 @@ class Game {
 
     // console.log(frameCount);
     //sample data
+  }
+
+  drawBackground(){
+    this.background.draw();
+  }
+
+  drawForeground(){
+    this.foreground.draw();
   }
 
   drawAssets() {
