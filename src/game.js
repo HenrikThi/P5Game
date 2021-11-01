@@ -10,16 +10,13 @@ class Game {
       loadImage(`../assets/fruit/${name}_run_1.png`),
       loadImage(`../assets/fruit/${name}_run_2.png`),
     ]);
-
-    // console.log(frameCount);
-    //sample data
   }
 
-  drawBackground(){
+  drawBackground() {
     this.background.draw();
   }
 
-  drawForeground(){
+  drawForeground() {
     this.foreground.draw();
   }
 
@@ -32,8 +29,7 @@ class Game {
     });
     this.player.draw();
     this.fruits = this.fruits.filter(
-      (fruit) => !fruit.checkCollision(this.player) && fruit.y <= HEIGHT
+      (fruit) => !fruit.checkCollision(this.player) && fruit.y <= GROUND_LVL
     );
-    // console.log(this.fruits);
   }
 }

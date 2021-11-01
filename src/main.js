@@ -8,13 +8,14 @@ function setup() {
 
 function draw() {
   clear();
+  if (GAME_OVER) return;
   for (let i = 0; i < 11; i++) {
     line(0, i * 100, 1000, i * 100);
     line(i * 100, 0, i * 100, 1000);
   }
   game.drawBackground();
-  game.drawForeground();
   game.drawAssets();
+  game.drawForeground();
 }
 
 function keyPressed() {}

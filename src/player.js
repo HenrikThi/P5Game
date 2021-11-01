@@ -7,24 +7,16 @@ class Player {
     this.x = 0;
     this.y = GROUND_LVL - 85;
     this.imgState = 0; //temp
-  }
-
-  moveLeft() {
-    this.x--;
-    console.log("left");
-  }
-  moveRight() {
-    this.x++;
-    console.log("right");
+    this.score = 0;
   }
 
   draw() {
-    if (keyIsDown(LEFT_ARROW)) {
+    if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
       this.x -= 10;
       if (this.x < 0) this.x = 0;
     }
 
-    if (keyIsDown(RIGHT_ARROW)) {
+    if (keyIsDown(RIGHT_ARROW)|| keyIsDown(68)) {
       this.x += 10;
       if (this.x > WIDTH - 100) this.x = WIDTH - 100;
     }
@@ -91,10 +83,17 @@ class Fruit {
       // this is not a collision
       return false;
     } else {
-      //
-      // game.player.score += 10
+      game.player.score += 50
+      if(this.type ===1){
+        alert(`Don't eath the lemons!!! You lose the game...`);
+        GAME_OVER = 1;
+      }
+      if(game.player.score >= 1000){
+        alert(`You win the game. But remember... Don't eat the lemons!!!`);
+        GAME_OVER = 1;
+      }
       // console.log(game.player.score)
-      console.log("collision");
+      console.log(this.type);
       return true;
     }
   }
