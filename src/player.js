@@ -110,11 +110,11 @@ class Fruit {
     } else {
       game.player.score += 50;
       if (this.type === 1) {
-        alert(`Don't eath the lemons!!! You lose the game...`);
+        alert(`Don't Eath The Lemon!!! You lose the game...`);
         GAME_OVER = 1;
       }
       if (game.player.score >= 1000) {
-        alert(`You win the game. But remember... Don't eat the lemons!!!`);
+        alert(`You win the game. But remember... Don't Eat The Lemon!!!`);
         GAME_OVER = 1;
       }
       return true;
