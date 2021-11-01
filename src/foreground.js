@@ -13,11 +13,11 @@ class Foreground {
       "assets/foreground/Village Set_Platformer - Ground 02.png"
     );
     this.ground12 = loadImage(
-        "assets/foreground/Village Set_Platformer - Ground 12.png"
-      );
-      this.ground08 = loadImage(
-        "assets/foreground/Village Set_Platformer - Ground 08.png"
-      );
+      "assets/foreground/Village Set_Platformer - Ground 12.png"
+    );
+    this.ground08 = loadImage(
+      "assets/foreground/Village Set_Platformer - Ground 08.png"
+    );
   }
 
   draw() {
@@ -41,7 +41,7 @@ class Foreground {
       this.ground02,
       this.ground02,
       this.ground02,
-      this.ground08
+      this.ground08,
     ];
     const y = GROUND_LVL;
     tiles.forEach((tile, idx) => image(tile, 50 * idx, y, 50, 50));

@@ -2,39 +2,64 @@ class Player {
   //maybe later: make the dino grow!
   constructor() {
     this.image = loadImage("assets/dino/dino_red.png");
+    this.imageMirrored = loadImage("assets/dino/dino_red_mirror.png");
     this.width = 100;
     this.height = 100;
     this.x = 0;
     this.y = GROUND_LVL - 85;
-    this.imgState = 0; //temp
+    this.imgIdx = 0;
     this.score = 0;
+    //-1 =^ move left, 0 =^ standing still, 1^ move right
+    this.currentDirection = 0;
+    this.directionsIdx = { left: 0, standing: 0, right: 0 };
   }
 
   draw() {
     if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
-      this.x -= 10;
-      if (this.x < 0) this.x = 0;
+      this.moveLeft();
+    } else if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
+      this.moveRight();
+    } else {
+      this.currentDirection = 0;
     }
 
-    if (keyIsDown(RIGHT_ARROW)|| keyIsDown(68)) {
-      this.x += 10;
-      if (this.x > WIDTH - 100) this.x = WIDTH - 100;
+    this.setImage();
+    const img = this.directionsIdx.left > 0 ? this.imageMirrored : this.image;
+    image(img, this.x, this.y, 100, 100, this.imgIdx * 120, 0, 120, 120);
+  }
+
+  setImage() {
+    if (frameCount % 12 != 0) return;
+
+    //-1 =^ move left, 0 =^ standing still, 1^ move right
+    if (this.currentDirection === 0) {
+      this.directionsIdx.standing++;
+      this.directionsIdx.left = 0;
+      this.directionsIdx.right = 0;
+      this.imgIdx = (this.directionsIdx.standing + 1) % 3;
+    } else if (this.currentDirection == -1) {
+      this.directionsIdx.standing = 0;
+      this.directionsIdx.left++;
+      this.directionsIdx.right = 0;
+      this.imgIdx = 20 - (this.directionsIdx.left % 4);
+    } else if (this.currentDirection == 1) {
+      this.directionsIdx.standing = 0;
+      this.directionsIdx.left = 0;
+      this.directionsIdx.right++;
+      this.imgIdx = (this.directionsIdx.right % 6) + 3;
     }
-    if (frameCount % 12 === 0) {
-      // console.log("frames 100");
-      this.imgState = (this.imgState + 1) % 3;
-    }
-    image(
-      this.image,
-      this.x,
-      this.y,
-      100,
-      100,
-      this.imgState * 120,
-      0,
-      120,
-      120
-    );
+  }
+
+  moveLeft() {
+    this.x -= 10;
+    this.currentDirection = -1;
+    if (this.x < 0) this.x = 0;
+  }
+
+  moveRight() {
+    this.x += 10;
+    this.currentDirection = 1;
+    if (this.x > WIDTH - 100) this.x = WIDTH - 100;
   }
 }
 
@@ -83,16 +108,15 @@ class Fruit {
       // this is not a collision
       return false;
     } else {
-      game.player.score += 50
-      if(this.type ===1){
-        alert(`Don't eath the lemons!!! You lose the game...`);
-        GAME_OVER = 1;
-      }
-      if(game.player.score >= 1000){
-        alert(`You win the game. But remember... Don't eat the lemons!!!`);
-        GAME_OVER = 1;
-      }
-      console.log(this.type);
+      game.player.score += 50;
+      // if (this.type === 1) {
+      //   alert(`Don't eath the lemons!!! You lose the game...`);
+      //   GAME_OVER = 1;
+      // }
+      // if (game.player.score >= 1000) {
+      //   alert(`You win the game. But remember... Don't eat the lemons!!!`);
+      //   GAME_OVER = 1;
+      // }
       return true;
     }
   }
