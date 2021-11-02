@@ -10,10 +10,6 @@ function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
   game = new Game(new Player());
-  // song.loop();
-  button = createButton("click me");
-  button.position(0, 0);
-  button.mousePressed(console.log("clicked"));
 }
 
 function draw() {
