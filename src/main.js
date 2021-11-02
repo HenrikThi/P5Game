@@ -29,7 +29,4 @@ function keyPressed() {}
 
 function mousePressed() {
   game.mousePressed();
-  // trigger sound
-  //song.loop();
-  console.log("loop song!");
 }
