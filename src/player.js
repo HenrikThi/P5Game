@@ -69,11 +69,13 @@ class Fruit {
     this.sounds = sounds;
     this.width = 100;
     this.height = 100;
-    this.type = Math.floor(Math.random() * FRUIT_NAMES.length);
+    this.type = this.getRndFruitType();
     this.x;
     this.y;
 
     this.setRandomPosition();
+
+    // this.getRndFruitType();
   }
 
   draw() {
@@ -109,21 +111,32 @@ class Fruit {
       // this is not a collision
       return false;
     } else {
-      if (this.type !== 1) {
+      if (this.type !== 0) {
         game.player.score += 50;
         this.sounds.pickup.play();
       }
 
-      if (this.type === 1) {
+      if (this.type === 0) {
         this.sounds.toink.play();
         alert(`Don't Eath The Lemon! You lose the game...`);
         GAME_OVER = 1;
       }
-      if (game.player.score >= 1000) {
-        alert(`You win the game. But remember... Don't Eat The Lemon!`);
-        GAME_OVER = 1;
-      }
+      // if (game.player.score >= 1000) {
+      // alert(`You win the game. But remember... Don't Eat The Lemon!`);
+      // GAME_OVER = 1;
+      // }
       return true;
+    }
+  }
+
+  getRndFruitType() {
+    const score = game.player.score;
+    const rnd = Math.random() * 100 + (score + 1) / 50;
+    console.log(Math.floor(rnd));
+    if (rnd >= 83.34) {
+      return 0;
+    } else {
+      return Math.floor(Math.random() * (FRUIT_NAMES.length - 1)) + 1;
     }
   }
 }

@@ -5,8 +5,8 @@ const GROUND_LVL = HEIGHT - 40;
 let GAME_OVER = 0;
 
 const FRUIT_NAMES = [
-  "apple",
   "lemon",
+  "apple",
   "orange",
   "pear",
   "strawberry",

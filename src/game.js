@@ -30,7 +30,9 @@ class Game {
   }
 
   drawAssets() {
-    if (frameCount % 10 === 0) {
+    //"Ends" the game at a score of 3000.
+    const fruitFrequency = this.player.score < 3000 ? 10 : 1;
+    if (frameCount % fruitFrequency === 0) {
       this.fruits.push(new Fruit(this.fruitImages, this.sounds));
     }
     this.fruits.forEach((fruit) => {
