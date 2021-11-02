@@ -1,9 +1,20 @@
 let game;
+let song;
+
+// function preload() {
+//   // soundFormats('mp3');
+//   song = loadSound("assets/sounds/example.mp3");
+// }
+function preload() {
+  // soundFormats('mp3');
+  song = loadSound("assets/sounds/background_music.wav");
+}
 
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
   game = new Game(new Player());
+  song.loop();
 }
 
 function draw() {
@@ -19,3 +30,8 @@ function draw() {
 }
 
 function keyPressed() {}
+
+function mousePressed() {
+  // trigger sound
+  song.loop();
+}

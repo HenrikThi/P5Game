@@ -3,9 +3,9 @@ class Game {
     this.player = player;
     this.background = new Background(player);
     this.foreground = new Foreground();
+    // this.backgroundMusic = loadSound('assets/sounds/background_music.wav');
 
     this.fruits = [];
-
     this.fruitImages = FRUIT_NAMES.map((name) => [
       loadImage(`assets/fruit/${name}_run_0.png`),
       loadImage(`assets/fruit/${name}_run_1.png`),
@@ -22,6 +22,7 @@ class Game {
   }
 
   drawAssets() {
+    // this.backgroundMusic.play();
     if (frameCount % 10 === 0) {
       this.fruits.push(new Fruit(this.fruitImages));
     }
