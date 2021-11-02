@@ -44,6 +44,11 @@ class Game {
     );
   }
 
+  restart() {
+    this.player.score = 0;
+    this.fruits = [];
+  }
+
   mousePressed() {
     this.menu.mousePressed();
   }

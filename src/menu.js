@@ -1,5 +1,7 @@
 class Menu {
   constructor() {
+    this.dino = loadImage("assets/dino/dino_red.png");
+    this.dinoIdx = 0;
     this.musicOnIcon = loadImage("assets/menu/sound-on.png");
     this.musicOffIcon = loadImage("assets/menu/no-sound.png");
     this.backgroundMusic = loadSound("assets/sounds/background_music.wav");
@@ -9,6 +11,13 @@ class Menu {
   draw() {
     this.drawMusicSymbol();
     this.drawScore();
+    if (gameState === 0) {
+      this.drawStartScreen();
+    }
+
+    if(gameState === 3){
+      this.drawEndScreen();
+    }
   }
 
   drawMusicSymbol() {
@@ -22,12 +31,36 @@ class Menu {
     text(game.player.score.toString().padStart(8, "0"), 750, 55);
   }
 
+  drawStartScreen() {
+    rect(300, 300, 400, 100);
+    textSize(32);
+    text("START THE GAME", 365, 360);
+    image(this.dino, 460, 225, 100, 100, this.dinoIdx * 120, 0, 120, 120);
+    if (frameCount % 12 === 0) {
+      this.dinoIdx = (this.dinoIdx + 1) % 3;
+    }
+  }
+
+  drawEndScreen(){
+    console.log("drawing End Screen");
+  }
+
   mousePressed() {
     if (mouseX >= WIDTH - 75 && mouseY <= 75) {
       this.musicActive = !this.musicActive;
       if (this.musicActive) this.backgroundMusic.loop();
       else this.backgroundMusic.stop();
       this.test.play();
+    }
+
+    if (
+      gameState === 0 &&
+      mouseX >= 300 &&
+      mouseX <= 700 &&
+      mouseY >= 300 &&
+      mouseY <= 400
+    ) {
+      gameState = 1;
     }
   }
 }

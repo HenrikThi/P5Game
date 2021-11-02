@@ -1,6 +1,7 @@
 let game;
 let song;
 let button;
+let gameState = 0;
 
 function preload() {
   song = loadSound("assets/sounds/background_music.wav");
@@ -15,12 +16,11 @@ function setup() {
 function draw() {
   clear();
   if (GAME_OVER) return;
-  for (let i = 0; i < 11; i++) {
-    line(0, i * 100, 1000, i * 100);
-    line(i * 100, 0, i * 100, 1000);
-  }
+
   game.drawBackground();
-  game.drawAssets();
+  if (gameState === 1) {
+    game.drawAssets();
+  }
   game.drawForeground();
   game.drawMenu();
 }
@@ -29,4 +29,5 @@ function keyPressed() {}
 
 function mousePressed() {
   game.mousePressed();
+  // game.restart();
 }
