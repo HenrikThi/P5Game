@@ -7,9 +7,21 @@ class Menu {
     this.musicActive = false;
   }
   draw() {
+    this.drawMusicSymbol();
+    this.drawScore();
+  }
+
+  drawMusicSymbol() {
     const activeIcon = this.musicActive ? this.musicOnIcon : this.musicOffIcon;
     image(activeIcon, WIDTH - 75, 20, 50, 50);
   }
+
+  drawScore() {
+    textFont("Roboto Mono");
+    textSize(30);
+    text(game.player.score.toString().padStart(8, "0"), 750, 55);
+  }
+
   mousePressed() {
     if (mouseX >= WIDTH - 75 && mouseY <= 75) {
       this.musicActive = !this.musicActive;

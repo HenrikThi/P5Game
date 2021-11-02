@@ -11,8 +11,10 @@ class Game {
       loadImage(`assets/fruit/${name}_run_1.png`),
       loadImage(`assets/fruit/${name}_run_2.png`),
     ]);
-    this.sounds = {toink: loadSound("assets/sounds/toink.mp3"), pickup: loadSound("assets/sounds/pickup.wav")}; 
-
+    this.sounds = {
+      toink: loadSound("assets/sounds/toink.mp3"),
+      pickup: loadSound("assets/sounds/pickup.wav"),
+    };
   }
 
   drawBackground() {
@@ -23,17 +25,11 @@ class Game {
     this.foreground.draw();
   }
 
-  drawMenu(){
-
+  drawMenu() {
     this.menu.draw();
-    // rect(925, 25, 50, 50);
-    // fill(255);
-    // textSize(30)
-    // text('START', 70, 106);
   }
 
   drawAssets() {
-    // this.backgroundMusic.play();
     if (frameCount % 10 === 0) {
       this.fruits.push(new Fruit(this.fruitImages, this.sounds));
     }
@@ -46,7 +42,7 @@ class Game {
     );
   }
 
-  mousePressed(){
+  mousePressed() {
     this.menu.mousePressed();
   }
 }
