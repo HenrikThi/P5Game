@@ -64,8 +64,9 @@ class Player {
 }
 
 class Fruit {
-  constructor(images) {
+  constructor(images, sounds) {
     this.images = images;
+    this.sounds = sounds;
     this.width = 100;
     this.height = 100;
     this.type = Math.floor(Math.random() * FRUIT_NAMES.length);
@@ -108,8 +109,13 @@ class Fruit {
       // this is not a collision
       return false;
     } else {
-      game.player.score += 50;
+      if (this.type !== 1) {
+        game.player.score += 50;
+        this.sounds.pickup.play();
+      }
+
       if (this.type === 1) {
+        this.sounds.toink.play();
         alert(`Don't Eath The Lemon! You lose the game...`);
         GAME_OVER = 1;
       }

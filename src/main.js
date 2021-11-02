@@ -1,12 +1,8 @@
 let game;
 let song;
+let button;
 
-// function preload() {
-//   // soundFormats('mp3');
-//   song = loadSound("assets/sounds/example.mp3");
-// }
 function preload() {
-  // soundFormats('mp3');
   song = loadSound("assets/sounds/background_music.wav");
 }
 
@@ -14,7 +10,10 @@ function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
   game = new Game(new Player());
-  song.loop();
+  // song.loop();
+  button = createButton("click me");
+  button.position(0, 0);
+  button.mousePressed(console.log("clicked"));
 }
 
 function draw() {
@@ -27,11 +26,14 @@ function draw() {
   game.drawBackground();
   game.drawAssets();
   game.drawForeground();
+  game.drawMenu();
 }
 
 function keyPressed() {}
 
 function mousePressed() {
+  game.mousePressed();
   // trigger sound
-  song.loop();
+  //song.loop();
+  console.log("loop song!");
 }

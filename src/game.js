@@ -3,7 +3,7 @@ class Game {
     this.player = player;
     this.background = new Background(player);
     this.foreground = new Foreground();
-    // this.backgroundMusic = loadSound('assets/sounds/background_music.wav');
+    this.menu = new Menu();
 
     this.fruits = [];
     this.fruitImages = FRUIT_NAMES.map((name) => [
@@ -11,6 +11,8 @@ class Game {
       loadImage(`assets/fruit/${name}_run_1.png`),
       loadImage(`assets/fruit/${name}_run_2.png`),
     ]);
+    this.sounds = {toink: loadSound("assets/sounds/toink.mp3"), pickup: loadSound("assets/sounds/pickup.wav")}; 
+
   }
 
   drawBackground() {
@@ -21,10 +23,19 @@ class Game {
     this.foreground.draw();
   }
 
+  drawMenu(){
+
+    this.menu.draw();
+    // rect(925, 25, 50, 50);
+    // fill(255);
+    // textSize(30)
+    // text('START', 70, 106);
+  }
+
   drawAssets() {
     // this.backgroundMusic.play();
     if (frameCount % 10 === 0) {
-      this.fruits.push(new Fruit(this.fruitImages));
+      this.fruits.push(new Fruit(this.fruitImages, this.sounds));
     }
     this.fruits.forEach((fruit) => {
       fruit.draw();
@@ -33,5 +44,9 @@ class Game {
     this.fruits = this.fruits.filter(
       (fruit) => !fruit.checkCollision(this.player) && fruit.y <= GROUND_LVL
     );
+  }
+
+  mousePressed(){
+    this.menu.mousePressed();
   }
 }
