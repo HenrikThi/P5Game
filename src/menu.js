@@ -2,6 +2,7 @@ class Menu {
   constructor() {
     this.dino = loadImage("assets/dino/dino_red.png");
     this.dinoIdx = 0;
+    this.directionArrow = loadImage("assets/menu/direction-arrow.png");
     this.musicOnIcon = loadImage("assets/menu/sound-on.png");
     this.musicOffIcon = loadImage("assets/menu/no-sound.png");
     this.backgroundMusic = loadSound("assets/sounds/background_music.wav");
@@ -23,6 +24,10 @@ class Menu {
   drawMusicSymbol() {
     const activeIcon = this.musicActive ? this.musicOnIcon : this.musicOffIcon;
     image(activeIcon, WIDTH - 75, 20, 50, 50);
+
+    if (!this.musicActive) {
+      image(this.directionArrow, 870, 100, 103, 90);
+    }
   }
 
   drawScore() {
