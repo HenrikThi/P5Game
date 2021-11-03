@@ -5,7 +5,7 @@ class Menu {
     this.musicOnIcon = loadImage("assets/menu/sound-on.png");
     this.musicOffIcon = loadImage("assets/menu/no-sound.png");
     this.backgroundMusic = loadSound("assets/sounds/background_music.wav");
-    this.test = loadSound("assets/sounds/toink.mp3");
+    this.replaySound = loadSound("assets/sounds/pickup.wav");
     this.musicActive = false;
   }
   draw() {
@@ -15,7 +15,7 @@ class Menu {
       this.drawStartScreen();
     }
 
-    if(gameState === 3){
+    if (gameState === 3) {
       this.drawEndScreen();
     }
   }
@@ -28,6 +28,7 @@ class Menu {
   drawScore() {
     textFont("Roboto Mono");
     textSize(30);
+    textAlign(LEFT, BASELINE);
     text(game.player.score.toString().padStart(8, "0"), 750, 55);
   }
 
@@ -35,22 +36,52 @@ class Menu {
     rect(300, 300, 400, 100);
     textSize(32);
     text("START THE GAME", 365, 360);
-    image(this.dino, 460, 225, 100, 100, this.dinoIdx * 120, 0, 120, 120);
+    this.drawDino();
+    // image(this.dino, 460, 225, 100, 100, this.dinoIdx * 120, 0, 120, 120);
+    // if (frameCount % 12 === 0) {
+    //   this.dinoIdx = (this.dinoIdx + 1) % 3;
+    // }
+  }
+
+  drawEndScreen() {
+    rect(300, 300, 400, 210);
+    textSize(48);
+    textAlign(CENTER, CENTER);
+    text(`GAME OVER`, 500, 360);
+    textSize(32);
+    text(`score: ${game.player.score.toString().padStart(8, "0")}`, 500, 420);
+    push();
+    strokeWeight(4);
+    stroke(51);
+    fill(255, 255, 0);
+    text(`RePlay`, 500, 470);
+    pop();
+    this.drawDino();
+
+    // fill()
+
+    // console.log("drawing End Screen");
+  }
+
+  drawDino() {
+    image(this.dino, 450, 225, 100, 100, this.dinoIdx * 120, 0, 120, 120);
     if (frameCount % 12 === 0) {
       this.dinoIdx = (this.dinoIdx + 1) % 3;
     }
   }
 
-  drawEndScreen(){
-    console.log("drawing End Screen");
-  }
-
   mousePressed() {
-    if (mouseX >= WIDTH - 75 && mouseY <= 75) {
+    if (
+      mouseX >= WIDTH - 75 &&
+      mouseX <= WIDTH &&
+      mouseY <= 75 &&
+      mouseY >= 0
+    ) {
       this.musicActive = !this.musicActive;
-      if (this.musicActive) this.backgroundMusic.loop();
-      else this.backgroundMusic.stop();
-      this.test.play();
+      if (this.musicActive) {
+        this.backgroundMusic.loop();
+      } else this.backgroundMusic.stop();
+      // this.test.play();
     }
 
     if (
@@ -62,5 +93,18 @@ class Menu {
     ) {
       gameState = 1;
     }
+
+    if (
+      gameState === 3 &&
+      mouseX >= 439 &&
+      mouseX <= 560 &&
+      mouseY >= 450 &&
+      mouseY <= 490
+    ) {
+      this.replaySound.play();
+      game.restart();
+      gameState = 1;
+    }
+
   }
 }

@@ -25,8 +25,8 @@ class Background {
 
   drawCloseMountains() {
     const y = 400;
-    image(this.closeMountains, -20 + this.playerDelta / 8, y, 768, 432);
-    image(this.closeMountains, -20 + 768 + this.playerDelta / 8, y, 768, 432);
+    image(this.closeMountains, -20 + this.playerDelta / 8, y, 768, 437);
+    image(this.closeMountains, -20 + 768 + this.playerDelta / 8, y, 768, 437);
     // -20 =^ image offset so that the edges are not visible, because of player movement.
   }
 

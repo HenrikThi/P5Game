@@ -15,7 +15,6 @@ function setup() {
 
 function draw() {
   clear();
-  if (GAME_OVER) return;
 
   game.drawBackground();
   if (gameState === 1) {
@@ -29,5 +28,4 @@ function keyPressed() {}
 
 function mousePressed() {
   game.mousePressed();
-  // game.restart();
 }

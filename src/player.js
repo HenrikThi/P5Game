@@ -104,7 +104,6 @@ class Fruit {
     // get the middle of the obstacle
     const obstacleX = this.x + this.width / 2;
     const obstacleY = this.y + this.height / 2;
-    // console.log(obstacleX, obstacleY, playerX, playerY);
 
     // measure the distance between obstacle and player
     if (dist(obstacleX, obstacleY, playerX, playerY) > 40) {
@@ -118,13 +117,8 @@ class Fruit {
 
       if (this.type === 0) {
         this.sounds.toink.play();
-        alert(`Don't Eath The Lemon! You lose the game...`);
-        GAME_OVER = 1;
+        gameState = 3;
       }
-      // if (game.player.score >= 1000) {
-      // alert(`You win the game. But remember... Don't Eat The Lemon!`);
-      // GAME_OVER = 1;
-      // }
       return true;
     }
   }
@@ -132,7 +126,6 @@ class Fruit {
   getRndFruitType() {
     const score = game.player.score;
     const rnd = Math.random() * 100 + (score + 1) / 50;
-    console.log(Math.floor(rnd));
     if (rnd >= 83.34) {
       return 0;
     } else {
