@@ -2,11 +2,10 @@ class Menu {
   constructor() {
     this.dino = loadImage("assets/dino/dino_red.png");
     this.dinoIdx = 0;
-    this.directionArrow = loadImage("assets/menu/direction-arrow.png");
     this.musicOnIcon = loadImage("assets/menu/sound-on.png");
     this.musicOffIcon = loadImage("assets/menu/no-sound.png");
     this.backgroundMusic = loadSound("assets/sounds/background_music.wav");
-    this.replaySound = loadSound("assets/sounds/pickup.wav");
+    this.menuBeep = loadSound("assets/sounds/menu_beep.wav")
     this.musicActive = false;
   }
   draw() {
@@ -24,10 +23,6 @@ class Menu {
   drawMusicSymbol() {
     const activeIcon = this.musicActive ? this.musicOnIcon : this.musicOffIcon;
     image(activeIcon, WIDTH - 75, 20, 50, 50);
-
-    if (!this.musicActive) {
-      image(this.directionArrow, 870, 100, 103, 90);
-    }
   }
 
   drawScore() {
@@ -87,6 +82,7 @@ class Menu {
       mouseY >= 300 &&
       mouseY <= 400
     ) {
+      this.menuBeep.play()
       gameState = 1;
     }
 
@@ -97,7 +93,7 @@ class Menu {
       mouseY >= 450 &&
       mouseY <= 490
     ) {
-      this.replaySound.play();
+      this.menuBeep.play()
       game.restart();
       gameState = 1;
     }
