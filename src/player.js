@@ -74,8 +74,6 @@ class Fruit {
     this.y;
 
     this.setRandomPosition();
-
-    // this.getRndFruitType();
   }
 
   draw() {

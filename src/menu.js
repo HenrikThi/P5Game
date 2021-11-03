@@ -37,10 +37,6 @@ class Menu {
     textSize(32);
     text("START THE GAME", 365, 360);
     this.drawDino();
-    // image(this.dino, 460, 225, 100, 100, this.dinoIdx * 120, 0, 120, 120);
-    // if (frameCount % 12 === 0) {
-    //   this.dinoIdx = (this.dinoIdx + 1) % 3;
-    // }
   }
 
   drawEndScreen() {
@@ -57,10 +53,6 @@ class Menu {
     text(`RePlay`, 500, 470);
     pop();
     this.drawDino();
-
-    // fill()
-
-    // console.log("drawing End Screen");
   }
 
   drawDino() {
@@ -81,7 +73,6 @@ class Menu {
       if (this.musicActive) {
         this.backgroundMusic.loop();
       } else this.backgroundMusic.stop();
-      // this.test.play();
     }
 
     if (
@@ -105,6 +96,5 @@ class Menu {
       game.restart();
       gameState = 1;
     }
-
   }
 }
