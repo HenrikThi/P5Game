@@ -46,6 +46,7 @@ class Game {
 
   restart() {
     this.player.score = 0;
+    this.player.x = 450;
     this.fruits = [];
   }
 
