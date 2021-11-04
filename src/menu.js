@@ -49,7 +49,9 @@ class Menu {
     push();
     strokeWeight(4);
     stroke(51);
-    fill(255, 255, 0);
+    // fill(255, 255, 0);
+    fill(188, 76, 78);
+
     text(`RePlay`, 500, 470);
     pop();
     this.drawDino();
